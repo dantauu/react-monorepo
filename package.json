@@ -10,11 +10,9 @@
   "scripts": {
     "dev:frontend": "bun --filter frontend dev",
     "dev:backend": "bun --filter backend start:dev",
-    "dev": "docker compose -f compose.dev.yaml up",
-    "start": "docker compose -f compose.start.yaml up --build",
     "build": "bun --filter frontend build & bun --filter backend build",
-    "turbo:build": "turbo run build",
-    "prettier:fix": "bun workspaces foreach -tA run prettier:fix && prettier --write ."
+    "dev": "docker compose -f compose.dev.yaml up",
+    "start": "docker compose -f compose.start.yaml up --build"
   },
   "devDependencies": {
     "@types/node": "^22.10.7",

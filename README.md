@@ -1,32 +1,29 @@
-# react-monorepo
+# About
 
-This is a monorepo for react + nest application
+This is a monorepo for React.js + Nest.js application
 
-To install dependencies:
-
+To start this:
 # First step
 
 ```bash
 bun install
 ```
 
-# Second step - start fullstack
+# Second step - start fullstack in docker
 
 ```bash
 bun run dev
 ```
+after this will be starting container
 
-# Or start only frontend
+# Or start by individually
 
+Frontend
 ```bash
 bun run dev:frontend
 ```
 
-# Or start only backend
-
+Backend
 ```bash
 bun run dev:backend
 ```
-
-
-This project was created using `bun init` in bun v1.3.1. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
