@@ -1,16 +1,11 @@
-FROM oven/bun:latest AS build
+FROM oven/bun:1
 
 WORKDIR /app
 
-COPY package.json ./
-COPY apps ./apps
-COPY packages ./packages
+COPY . .
 
 RUN bun install
-RUN bun --filter backend run build
 
-FROM oven/bun:latest
-WORKDIR /app
-COPY --from=build /app/apps/backend/dist ./dist
-EXPOSE 9000
-CMD ["bun", "--filter", "backend", "run", "start:prod"]
+WORKDIR /app/apps/backend
+
+CMD ["bun", "run", "start:dev"]

@@ -1,15 +1,11 @@
-FROM oven/bun:latest AS build
+FROM oven/bun:1
 
 WORKDIR /app
 
-COPY package.json ./
-COPY apps ./apps
-COPY packages ./packages
+COPY . .
 
 RUN bun install
-RUN bun --filter frontend run build
 
-FROM nginx:alpine
-COPY --from=build /app/apps/frontend/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+WORKDIR /app/apps/frontend
+
+CMD ["bun", "x", "vite", "--host", "--port", "5137"]

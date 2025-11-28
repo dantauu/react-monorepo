@@ -1,20 +1,27 @@
 services:
-  backend:
-    build:
-      context: .
-      dockerfile: apps/backend/Dockerfile
-    volumes:
-      - ./:/app
-    ports:
-      - "9000:9000"
-    command: bun --filter backend run start:dev
-
   frontend:
     build:
       context: .
       dockerfile: apps/frontend/Dockerfile
     volumes:
-      - ./:/app
+      - .:/app
+      - /app/node_modules
     ports:
-      - "5173:5173"
-    command: bun --filter frontend run dev
+      - "8000:5137"
+    working_dir: /app/apps/frontend
+    environment:
+      NODE_ENV: development
+    command: bun run dev
+
+  backend:
+    build:
+      context: .
+      dockerfile: apps/backend/Dockerfile
+    volumes:
+        - .:/app
+        - /app/node_modules
+    ports:
+        - "9000:9000"
+    environment:
+        NODE_ENV: development
+    command: bun run start:dev
