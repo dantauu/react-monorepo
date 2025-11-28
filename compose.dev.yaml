@@ -1,0 +1,20 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: apps/backend/Dockerfile
+    volumes:
+      - ./:/app
+    ports:
+      - "9000:9000"
+    command: bun --filter backend run start:dev
+
+  frontend:
+    build:
+      context: .
+      dockerfile: apps/frontend/Dockerfile
+    volumes:
+      - ./:/app
+    ports:
+      - "5173:5173"
+    command: bun --filter frontend run dev

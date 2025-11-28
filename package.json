@@ -10,7 +10,8 @@
   "scripts": {
     "dev:frontend": "bun --filter frontend dev",
     "dev:backend": "bun --filter backend start:dev",
-    "dev": "bun --filter frontend dev & bun --filter backend start:dev"
+    "dev": "bun --filter frontend dev & bun --filter backend start:dev",
+    "build": "nest build & vite build"
   },
   "dependencies": {
     "react": "^19.2.0",
@@ -50,7 +51,9 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.20.0"
+    "typescript-eslint": "^8.20.0",
+    "@types/bun": "latest"
   },
-  "packageManager": "yarn@3.2.3+sha512.f26f951f67de0c6a33ee381e5ff364709c87e70eb5e65c694e4facde3512f1fa80b8679e6ba31ce7d340fbb46f08dd683af9457e240f25a204be7427940d767e"
+  "packageManager": "yarn@3.2.3+sha512.f26f951f67de0c6a33ee381e5ff364709c87e70eb5e65c694e4facde3512f1fa80b8679e6ba31ce7d340fbb46f08dd683af9457e240f25a204be7427940d767e",
+  "module": "index.ts"
 }
